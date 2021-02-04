@@ -69,14 +69,14 @@ path == "c:\users\john\malware.exe" ||
 ### Functions
 There are some functions to help manipulate and work with the data at hand more simply:
 
-- lowercase()
-- uppercase()
-- regex()
-- date()
-- today()
-- trailingDays()
-- cidr()
-- privateIp()
+- [lowercase()](#lowercase)
+- [uppercase()](#uppercase)
+- [regex()](#regex)
+- [date()](#date)
+- [today()](#today)
+- [trailingDays()](#trailingDays)
+- [cidr()](#cidr)
+- [privateIp()](#privateIp)
 
 #### lowercase()
 Transform a string or a field to its lowercase form. Given an input item:
@@ -90,15 +90,15 @@ Transform a string or a field to its lowercase form. Given an input item:
 
 All of these work:
 
-```
+```json
 path == lowercase("C:\windows\System32\NotePad.EXE")
 ```
 
-```
+```json
 lowercase(commandLine) == "c:\windows\system32\notepad.exe c:\users\joe\documents\passwords.txt",
 ```
 
-```
+```json
 lowercase("StRIng") == lowercase("stRing")
 ```
 
@@ -117,7 +117,7 @@ Provides a PCRE compliant regex matching framework. Given an input item:
 
 This will work:
 
-```
+```json
 path == regex(".*notepad\.exe")
 ```
 
@@ -128,20 +128,20 @@ Provides date parsing and comparison operations. It will parse several formats:
 - `yyyy-mm-dd HH:MM:SS`
 - `yyyy-mm-ddTHH:MM:SSZ` (ISO format)
 
-```
+```json
 date('2020-01-01') < date('2021-01-01')
 ```
 
 This operation works on fields as well:
 
-```
+```json
 date(createdOn) > date('2021-01-01')
 ```
 
 #### today()
 The current date time stamp for use in [date](#date) comparisons
 
-```
+```json
 date(createdOn) > today()
 ```
 
@@ -150,14 +150,14 @@ A datetime stamp for a number of days prior to today.
 
 The following matches any created date within the last 30 days:
 
-```
+```json
 date(createdOn) > trailingDays(30)
 ```
 
 #### cidr()
 Generates a network CIDR for matching IP data:
 
-```
+```json
 type == "connection" && remote_addr != cidr("192.168.1.0/24")
 ```
 
@@ -166,7 +166,7 @@ Compares network IPs against private or loopback ranges:
 
 The following matches on all `destIp` instances that are not loopback or private:
 
-```
+```json
 type == "connection" && remote_addr != privateIp()
 ```
 
