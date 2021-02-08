@@ -72,6 +72,7 @@ There are some functions to help manipulate and work with the data at hand more 
 - [lowercase()](#lowercase)
 - [uppercase()](#uppercase)
 - [regex()](#regex)
+- [iregex()](#iregex)
 - [date()](#date)
 - [today()](#today)
 - [trailingDays()](#trailingDays)
@@ -119,6 +120,28 @@ This will work:
 
 ```javascript
 path == regex(".*notepad\.exe")
+```
+
+#### iregex()
+Convenience wrapper for case insensitive PCRE compliant regex matching framework. Given an input item:
+
+```json
+{
+    "path": "c:\\windows\\system32\\notepad.exe",
+    "commandLine": "c:\\windows\\system32\\notepad.exe c:\\users\\joe\\Documents\\Passwords.TXT",
+}
+```
+
+This will work:
+
+```javascript
+commandLine == iregex("\.txt")
+```
+
+Which is equivalent to:
+
+```javascript
+commandLine == regex("(?i)\.txt")
 ```
 
 #### date()
