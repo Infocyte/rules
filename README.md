@@ -47,8 +47,7 @@ If you have to escape something, we recommend using the [regex()](#regex) functi
 
 
 ## API Reference
-Rules are processed against the data collected by the endpoint. The specific fields for all data
-types are found [here](todo). All data types contain a `type` field and any collection involving
+Rules are processed against the data collected by the endpoint. All data types contain a `type` field and any collection involving
 files that reside on disk will have properties like `path`, `md5`, `sha1`, `sha256`, etc.
 
 ### Basics
