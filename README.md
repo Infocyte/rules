@@ -1,10 +1,16 @@
 # Infocyte Rules Engine
 The [Infocyte](https://www.infocyte.com) platform is a cloud-based threat detection and incident
 response platform for endpoints (workstations and servers) and cloud applications like Microsoft 365.
-In addition to the analysis performed natively by the Infocyte platform, users are able to customize
-detection criteria to fit their own needs using this rules engine.
-The **Infocyte Query Language (IQL)** is powerful yet familiar and quite simple to learn.
+In addition to the analysis performed natively by the Infocyte platform and it's multiple malware scanners, users are able to customize
+detection criteria to fit their own needs using our dynamic rules engine. 
+
+The service performs anaysis on the stream of incoming data as it comes into our cloud platform. 
 Rule processing is in the cloud, so there is no impact to endpoints or individual instances.
+Atomic rules are applied to individual events that are fed into the engine in the form of json documents while Coorelation Rules _(coming soon)_ are applied to a series of events or alerts. 
+The output of the engine is to produce boolean matching of rules that can fire off an alert or describe a behavior that was observed.
+
+The **Infocyte Query Language (IQL)** is our custom language to build rules in. 
+This language is powerful yet familiar and quite simple to learn for non-programmers.
 
 **This repository contains:**
 - [Language Information](#language-information)
