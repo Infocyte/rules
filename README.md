@@ -1,10 +1,10 @@
 # Infocyte Rules
-The [Infocyte](https://www.infocyte.com) platform is an agentless Threat Hunting and Incident
-Response platform.
-In addition to the analysis performed by the Infocyte platform, users are able to customize
-detection criteria to fit their own needs.
+The [Infocyte](https://www.infocyte.com) platform is a cloud-based threat detection and incident
+response platform for endpoints (workstations and servers) and cloud applications like Microsoft 365.
+In addition to the analysis performed natively by the Infocyte platform, users are able to customize
+detection criteria to fit their own needs using this rules engine.
 Our rules language is powerful yet familiar and quite simple to learn.
-Rule processing is cloud delivered, so there is no impact to endpoints or individual instances.
+Rule processing is in the cloud, so there is no impact to endpoints or individual instances.
 
 **This repository contains:**
 - [Usage Instructions](#usage)
@@ -31,13 +31,13 @@ More information on IQL is found [below](#api-reference).
 - Respond *(coming soon)* - initiate a response action on the endpoint using an [Infocyte Extension](https://github.com/infocyte/extensions)
 
 ## Language Information
-IQL is a completely custom language, whose syntax is loosely based on the likes javascript or c/c++.
+IQL is a custom language whose syntax is loosely based on javascript and related programming languages.
 The goal of the language is to be familiar, easy to learn, and obvious. As with any language, there
 are some things to know right out of the gate:
 
 #### Not Javascript/Some other language
 While the syntax might be familiar, the features of other languages are not present.
-IQL's express purpose is to provide an extremely fast and efficient way of describing equality statements.
+IQL's express purpose is to provide an extremely fast and efficient way of describing equality statements by non-programmers.
 
 #### No Need To Escape... Normally
 IQL is flexible, and is designed to make interacting with it simple.
@@ -47,8 +47,10 @@ If you have to escape something, we recommend using the [regex()](#regex) functi
 
 
 ## API Reference
-Rules are processed against the data collected by the endpoint. All data types contain a `type` field and any collection involving
-files that reside on disk will have properties like `path`, `md5`, `sha1`, `sha256`, etc.
+Rules are processed against the data collected by the endpoint but is flexible enough to work on any 
+arbitrary json-formatted documents that are fed into it. 
+All data types contain a `type` field and any collection involving files that reside on disk will 
+have properties like `path`, `md5`, `sha1`, `sha256`, etc.
 
 ### Basics
 
