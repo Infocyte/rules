@@ -1,39 +1,20 @@
-# Infocyte Rules
+# Infocyte Rules Engine
 The [Infocyte](https://www.infocyte.com) platform is a cloud-based threat detection and incident
 response platform for endpoints (workstations and servers) and cloud applications like Microsoft 365.
 In addition to the analysis performed natively by the Infocyte platform, users are able to customize
 detection criteria to fit their own needs using this rules engine.
-Our rules language is powerful yet familiar and quite simple to learn.
+The **Infocyte Query Language (IQL)** is powerful yet familiar and quite simple to learn.
 Rule processing is in the cloud, so there is no impact to endpoints or individual instances.
 
 **This repository contains:**
-- [Usage Instructions](#usage)
 - [Language Information](#language-information)
+- [Usage Instructions](#usage)
 - [API Reference](#api-reference)
 
-
-## Usage
-After logging into your Infocyte instance (with an administrator role) simply navigate to
-`Admin->Rules`.
-Here you can create new rules or edit/remove existing ones.
-Rules can also be set to active/inactive. Inactive prevents them from running during analysis.
-
-Rules Contain two parts: a conditional statement and an action.
-
-**Conditional statements** are formed using the Infocyte Query Language (IQL) which very closely
-resembles something like javascript. They can use boolean (&&, ||) statements, grouping of
-conditions, exclusions, and include some useful functions to help make them very easy to work with.
-More information on IQL is found [below](#api-reference).
-
-**Actions** are what happens when a rule matches an item.
-- Alert - adds an entry for the matched item to the Alert Inbox within the Infocyte application
-- Flag *(coming soon)* - attaches a specific flag to the item in the Infocyte application
-- Respond *(coming soon)* - initiate a response action on the endpoint using an [Infocyte Extension](https://github.com/infocyte/extensions)
-
 ## Language Information
-IQL is a custom language whose syntax is loosely based on javascript and related programming languages.
-The goal of the language is to be familiar, easy to learn, and obvious. As with any language, there
-are some things to know right out of the gate:
+**Infocyte Query Language (IQL)** is a custom language whose syntax is loosely based on javascript 
+and related programming languages. The goal of the language is to be familiar, easy to learn and obvious. 
+As with any language, there are some things to know right out of the gate:
 
 #### Not Javascript/Some other language
 While the syntax might be familiar, the features of other languages are not present.
@@ -44,6 +25,24 @@ IQL is flexible, and is designed to make interacting with it simple.
 This means copy and pasting things like Windows paths is ergonomic.
 There is no escape character to worry about, strings are just strings.
 If you have to escape something, we recommend using the [regex()](#regex) function.
+
+## Usage
+After logging into your Infocyte instance (with an administrator role) simply navigate to
+`Admin->Rules`.
+Here you can create new rules or edit/remove existing ones.
+Rules can also be set to active/inactive. Inactive prevents them from running during analysis.
+
+Rules Contain two parts: a conditional statement and an action.
+
+**Conditional statements** are formed using IQL which very closely
+resembles something like javascript. They can use boolean (&&, ||) statements, grouping of
+conditions, exclusions, and include some useful functions to help make them very easy to work with our data types.
+More information on IQL is found [below](#api-reference).
+
+**Actions** are what happens when a rule matches an item.
+- Alert - adds an entry for the matched item to the Alert Inbox within the Infocyte application
+- Flag *(coming soon)* - attaches a specific flag to the item in the Infocyte application
+- Respond *(coming soon)* - initiate a response action on the endpoint using an [Infocyte Extension](https://github.com/infocyte/extensions)
 
 
 ## API Reference
